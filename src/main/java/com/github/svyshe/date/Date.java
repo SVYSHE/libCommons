@@ -3,6 +3,10 @@ package com.github.svyshe.date;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * This class tries to combine the {@code java.utils.Date} and {@code java.time.LocalDateTime}
+ * functionality in one class to make it more usable and not deprecated.
+ */
 public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     public static int JANUARY = 1;
@@ -26,6 +30,11 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
     private int seconds;
     private int milliseconds;
 
+    /**
+     * Initializes the fields year, month, date of month, hours, minutes and seconds
+     * to the values at the current time. The field milliseconds gets set to 0;
+     * @throws DateException if invalid values are specified for the fields.
+     */
     public Date() throws DateException {
         LocalDateTime dateTime = LocalDateTime.now();
         setYear(dateTime.getYear());
@@ -37,6 +46,14 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         setMilliseconds(0);
     }
 
+    /**
+     * Initializes the fields year, month and day of month to the specified values.
+     * All other fields are initialized with the value 0.
+     * @param year The year as integer.
+     * @param month The month as integer
+     * @param dayOfMonth The day of the month as integer.
+     * @throws DateException if invalid values are specified for the fields.
+     */
     public Date(int year, int month, int dayOfMonth) throws DateException {
         setYear(year);
         setMonth(month);
@@ -47,6 +64,16 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         setMilliseconds(0);
     }
 
+    /**
+     * Initializes the fields year, month, day of month, hours and minutes to
+     * the specified values. All other fields are initialized to the value 0.
+     * @param year The year as integer.
+     * @param month The month as integer.
+     * @param dayOfMonth The day of month as integer.
+     * @param hours The hours as integer.
+     * @param minutes The minutes as integer.
+     * @throws DateException if invalid values are specified for the fields.
+     */
     public Date(int year, int month, int dayOfMonth, int hours, int minutes) throws DateException {
         setYear(year);
         setMonth(month);
@@ -57,6 +84,17 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         setMilliseconds(0);
     }
 
+    /**
+     * Initializes the fields year, month, day of month, hours and minutes to
+     * the specified values. The field milliseconds is initialized to the value 0.
+     * @param year The year as integer.
+     * @param month The month as integer.
+     * @param dayOfMonth The day of month as integer.
+     * @param hours The hours as integer.
+     * @param minutes The minutes as integer.
+     * @param seconds The seconds as integer.
+     * @throws DateException if invalid values are specified for the fields.
+     */
     public Date(int year, int month, int dayOfMonth, int hours, int minutes, int seconds) throws DateException {
         setYear(year);
         setMonth(month);
@@ -67,6 +105,14 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         setMilliseconds(0);
     }
 
+    /**
+     * Parses a date from the specified string.
+     * @since 0.1 - supported strings are string in the format
+     * yyyyMMddHHmmss, yyyyMMddHHmm and yyyyMMdd.
+     * @param dateString The string to parse the date from.
+     * @return A new date object with the values specified in the input string.
+     * @throws DateException if invalid values are set for the fields.
+     */
     public static Date parseFromString(String dateString) throws DateException {
         Date date = new Date();
         if (dateString.length() == 14)
@@ -98,16 +144,35 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         return null;
     }
 
+    /**
+     * Checks whether this date is after the specified date.
+     * @param date The date to check against.
+     * @return true if this date is after the specified date, false if not.
+     */
     public boolean after(Date date) {
         int comparisonResult = this.compareTo(date);
         return comparisonResult > 0;
     }
 
+    /**
+     * Checks whether this date is before the specified date.
+     * @param date The date to check against.
+     * @return true if this date is before the specified date, false if not.
+     */
     public boolean before(Date date) {
         int comparisonResult = this.compareTo(date);
         return comparisonResult < 0;
     }
 
+    /**
+     * Compares this date with another. If this date is later in time
+     * than the specified date, 1 will be returned. If this date is
+     * sooner in time than the specified date, -1 will be returned.
+     * In case that the dates are equal, 0 will be returned.
+     * @param o The date to compare with.
+     * @return 1 if this date is later in time, -1 if it's sooner in time
+     * compared to the specified date. 0 if they are equal.
+     */
     @Override
     public int compareTo(Date o) {
         if (this.getYear() > o.getYear()) {
@@ -149,6 +214,11 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         return 0;
     }
 
+    /**
+     * Checks for equality of both this and the specified date.
+     * @param o The date to compare equality to.
+     * @return True if they are equal, false if not.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -161,6 +231,10 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         return this.getYear() == date.getYear() && this.getMonth() == date.getMonth() && this.getDayOfMonth() == date.getDayOfMonth() && this.getHours() == date.getHours() && this.getMinutes() == date.getMinutes() && this.getSeconds() == date.getSeconds() && this.getMilliseconds() == date.getMilliseconds();
     }
 
+    /**
+     * Generates the hashcode based on the class fields.
+     * @return A hashcode as integer.
+     */
     @Override
     public int hashCode()
     {
@@ -175,10 +249,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         return result;
     }
 
+    /**
+     * Getter for the year.
+     * @return The year as integer.
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Setter for the year.
+     * @param year Integer value >= 0.
+     * @throws DateException if the value is < 0.
+     */
     public void setYear(int year) throws DateException {
         if (year >= 0) {
             this.year = year;
@@ -187,10 +270,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         }
     }
 
+    /**
+     * Getter for the month.
+     * @return The month as integer.
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     * Setter for the month.
+     * @param month Integer value > 0 && <= 12.
+     * @throws DateException if the value is <= 0 or > 12.
+     */
     public void setMonth(int month) throws DateException {
         if (month > 0 && month <= 12) {
             this.month = month;
@@ -199,10 +291,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         }
     }
 
+    /**
+     * Getter for the day of the month.
+     * @return the day of the month as integer.
+     */
     public int getDayOfMonth() {
         return dayOfMonth;
     }
 
+    /**
+     * Setter for the day of the month.
+     * @param dayOfMonth Integer value > 0 and <= 31.
+     * @throws DateException if the specified value is <= 0 or > 31.
+     */
     public void setDayOfMonth(int dayOfMonth) throws DateException {
         if (dayOfMonth > 0 && dayOfMonth <= 31) {
             this.dayOfMonth = dayOfMonth;
@@ -212,10 +313,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     }
 
+    /**
+     * Getter for the hours.
+     * @return the hours as integer.
+     */
     public int getHours() {
         return hours;
     }
 
+    /**
+     * Setter for the hours.
+     * @param hours Integer value >= 0 and < 24.
+     * @throws DateException if the specified value is < 0 or >= 24.
+     */
     public void setHours(int hours) throws DateException {
         if (hours >= 0 && hours < 24) {
             this.hours = hours;
@@ -225,10 +335,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         }
     }
 
+    /**
+     * Getter for the minutes.
+     * @return the minutes as integer.
+     */
     public int getMinutes() {
         return minutes;
     }
 
+    /**
+     * Setter for the minutes.
+     * @param minutes Integer value >= 0 and < 60.
+     * @throws DateException if the specified value is < 0 or >= 60.
+     */
     public void setMinutes(int minutes) throws DateException {
         if (minutes >= 0 && minutes < 60) {
             this.minutes = minutes;
@@ -237,10 +356,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         }
     }
 
+    /**
+     * Getter for the seconds.
+     * @return the seconds as integer.
+     */
     public int getSeconds() {
         return seconds;
     }
 
+    /**
+     * Setter for the seconds.
+     * @param seconds Integer value >= 0 and < 60.
+     * @throws DateException if the specified value is < 0 or >= 60.
+     */
     public void setSeconds(int seconds) throws DateException {
         if (seconds >= 0 && seconds < 60) {
             this.seconds = seconds;
@@ -249,10 +377,19 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
         }
     }
 
+    /**
+     * Getter for the milliseconds.
+     * @return the milliseconds as integer.
+     */
     public int getMilliseconds() {
         return milliseconds;
     }
 
+    /**
+     * Setter for the milliseconds.
+     * @param milliseconds Integer value >= 0 and < 1000.
+     * @throws DateException if the specified value is < 0 or >= 1000.
+     */
     public void setMilliseconds(int milliseconds) throws DateException {
         if (milliseconds >= 0 && milliseconds < 1000) {
             this.milliseconds = milliseconds;
