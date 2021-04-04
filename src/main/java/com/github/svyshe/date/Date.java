@@ -149,7 +149,7 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
      * @param date The date to check against.
      * @return true if this date is after the specified date, false if not.
      */
-    public boolean after(Date date) {
+    public boolean isAfter(Date date) {
         int comparisonResult = this.compareTo(date);
         return comparisonResult > 0;
     }
@@ -159,7 +159,7 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
      * @param date The date to check against.
      * @return true if this date is before the specified date, false if not.
      */
-    public boolean before(Date date) {
+    public boolean isBefore(Date date) {
         int comparisonResult = this.compareTo(date);
         return comparisonResult < 0;
     }
