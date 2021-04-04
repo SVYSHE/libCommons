@@ -1,4 +1,4 @@
-package com.github.svyshe.date.date;
+package com.github.svyshe.date;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

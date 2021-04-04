@@ -1,7 +1,5 @@
 package com.github.svyshe.date;
 
-import com.github.svyshe.date.date.Date;
-import com.github.svyshe.date.date.DateException;
 import org.junit.Assert;
 import org.junit.Test;
 

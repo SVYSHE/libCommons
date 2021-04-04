@@ -1,4 +1,4 @@
-package com.github.svyshe.date.date;
+package com.github.svyshe.date;
 
 public class DateException extends Exception {
     public DateException(String errorMessage)
