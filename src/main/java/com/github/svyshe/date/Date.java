@@ -259,8 +259,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the year.
-     * @param year Integer value >= 0.
-     * @throws DateException if the value is < 0.
+     * @param year Integer value greater than or equal to 0.
+     * @throws DateException if the value is smaller than 0.
      */
     public void setYear(int year) throws DateException {
         if (year >= 0) {
@@ -280,8 +280,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the month.
-     * @param month Integer value > 0 && <= 12.
-     * @throws DateException if the value is <= 0 or > 12.
+     * @param month Integer value greater than 0 and smaller than or equal to 12.
+     * @throws DateException if the value is smaller than or equal to 0 or greater than 12.
      */
     public void setMonth(int month) throws DateException {
         if (month > 0 && month <= 12) {
@@ -301,8 +301,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the day of the month.
-     * @param dayOfMonth Integer value > 0 and <= 31.
-     * @throws DateException if the specified value is <= 0 or > 31.
+     * @param dayOfMonth Integer value greater than 0 and smaller than or equal to 31.
+     * @throws DateException if the specified value is smaller than or equal to 0 or greater 31.
      */
     public void setDayOfMonth(int dayOfMonth) throws DateException {
         if (dayOfMonth > 0 && dayOfMonth <= 31) {
@@ -323,8 +323,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the hours.
-     * @param hours Integer value >= 0 and < 24.
-     * @throws DateException if the specified value is < 0 or >= 24.
+     * @param hours Integer value greater than or equal to 0 and smaller than 24.
+     * @throws DateException if the specified value is smaller than 0 or greater than or equal to 24.
      */
     public void setHours(int hours) throws DateException {
         if (hours >= 0 && hours < 24) {
@@ -345,8 +345,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the minutes.
-     * @param minutes Integer value >= 0 and < 60.
-     * @throws DateException if the specified value is < 0 or >= 60.
+     * @param minutes Integer value greater than or equal to 0 and smaller than 60.
+     * @throws DateException if the specified value is smaller than 0 or greater than or equal to 60.
      */
     public void setMinutes(int minutes) throws DateException {
         if (minutes >= 0 && minutes < 60) {
@@ -366,8 +366,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the seconds.
-     * @param seconds Integer value >= 0 and < 60.
-     * @throws DateException if the specified value is < 0 or >= 60.
+     * @param seconds Integer value greater than or equal to 0 and smaller than 60.
+     * @throws DateException if the specified value is smaller than 0 or greater than or equal to 60.
      */
     public void setSeconds(int seconds) throws DateException {
         if (seconds >= 0 && seconds < 60) {
@@ -387,8 +387,8 @@ public class Date implements Serializable, Cloneable, Comparable<Date> {
 
     /**
      * Setter for the milliseconds.
-     * @param milliseconds Integer value >= 0 and < 1000.
-     * @throws DateException if the specified value is < 0 or >= 1000.
+     * @param milliseconds Integer value greater than or equal to 0 and smaller 1000.
+     * @throws DateException if the specified value is smaller than 0 or greater than or equal to 1000.
      */
     public void setMilliseconds(int milliseconds) throws DateException {
         if (milliseconds >= 0 && milliseconds < 1000) {
