@@ -63,7 +63,7 @@ public class DateTimeTest {
     public void parseFromStringShouldThrowTest() throws DateTimeException {
         exceptionRule.expect(DateTimeException.class);
         exceptionRule.expectMessage("Please choose a length that is compatible with one of the following formats: yyyyMMddHHmmss, yyyyMMddHHmm or yyyyMMdd");
-        DateTime actual = DateTime.parseFromString("4444");
+        DateTime.parseFromString("4444");
     }
 
     @Test

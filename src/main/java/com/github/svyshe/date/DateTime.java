@@ -8,18 +8,18 @@ import java.io.Serializable;
  */
 public class DateTime implements Serializable, Cloneable, Comparable<DateTime> {
 
-    public static int JANUARY = 1;
-    public static int FEBRUARY = 2;
-    public static int MARCH = 3;
-    public static int APRIL = 4;
-    public static int MAY = 5;
-    public static int JUNE = 6;
-    public static int JULY = 7;
-    public static int AUGUST = 8;
-    public static int SEPTEMBER = 9;
-    public static int OCTOBER = 10;
-    public static int NOVEMBER = 11;
-    public static int DECEMBER = 12;
+    public static final int JANUARY = 1;
+    public static final int FEBRUARY = 2;
+    public static final int MARCH = 3;
+    public static final int APRIL = 4;
+    public static final int MAY = 5;
+    public static final int JUNE = 6;
+    public static final int JULY = 7;
+    public static final int AUGUST = 8;
+    public static final int SEPTEMBER = 9;
+    public static final int OCTOBER = 10;
+    public static final int NOVEMBER = 11;
+    public static final int DECEMBER = 12;
 
     private int year;
     private int month;
@@ -252,7 +252,7 @@ public class DateTime implements Serializable, Cloneable, Comparable<DateTime> {
      * @throws DateTimeException if the value is smaller than or equal to 0 or greater than 12.
      */
     public void setMonth(int month) throws DateTimeException {
-        if (month > 0 && month <= 12) {
+        if (month >= JANUARY && month <= DECEMBER) {
             this.month = month;
         } else {
             throw new DateTimeException("The field month has to be greater 0 and smaller or equal to 12.");
