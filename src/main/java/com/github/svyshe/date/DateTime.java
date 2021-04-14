@@ -6,7 +6,7 @@ import java.io.Serializable;
  * This class tries to combine the {@code java.utils.Date} and {@code java.time.LocalDateTime}
  * functionality in one class to make it more usable and not deprecated.
  */
-public class DateTime implements Serializable, Cloneable, Comparable<DateTime> {
+public class DateTime implements Serializable, Comparable<DateTime> {
 
     public static final int JANUARY = 1;
     public static final int FEBRUARY = 2;
@@ -124,11 +124,6 @@ public class DateTime implements Serializable, Cloneable, Comparable<DateTime> {
     public boolean isBefore(DateTime dateTime) {
         int comparisonResult = this.compareTo(dateTime);
         return comparisonResult < 0;
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 
     /**
