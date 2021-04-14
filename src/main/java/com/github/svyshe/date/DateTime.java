@@ -126,6 +126,11 @@ public class DateTime implements Serializable, Cloneable, Comparable<DateTime> {
         return comparisonResult < 0;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     /**
      * Compares this date with another. If this date is later in time
      * than the specified date, 1 will be returned. If this date is
