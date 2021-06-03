@@ -74,9 +74,9 @@ public class DateTimeTest {
         expected.setDayOfMonth(5);
 
         DateTime actual = new DateTime();
-        actual.setDate(2021,4,5);
+        actual.setDate(2021, 4, 5);
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -87,9 +87,9 @@ public class DateTimeTest {
         expected.setSeconds(5);
 
         DateTime actual = new DateTime();
-        actual.setTime(14,45,5);
+        actual.setTime(14, 45, 5);
 
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class DateTimeTest {
         DateTime later = new DateTime();
         later.setDate(2021, 5, 1);
         DateTime sooner = new DateTime();
-        sooner.setDate(2020,4,2);
+        sooner.setDate(2020, 4, 2);
         boolean actual = later.isAfter(sooner);
 
         Assert.assertTrue(actual);
@@ -108,9 +108,41 @@ public class DateTimeTest {
         DateTime later = new DateTime();
         later.setDate(2021, 5, 1);
         DateTime sooner = new DateTime();
-        sooner.setDate(2020,4,2);
+        sooner.setDate(2020, 4, 2);
         boolean actual = sooner.isBefore(later);
 
         Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void isLeapYearDiv4Test() throws DateTimeException {
+        DateTime dateTime = new DateTime();
+        dateTime.setYear(44);
+        boolean actual = dateTime.isLeapYear();
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void isLeapYearDiv100_ShouldFalse() throws DateTimeException {
+        DateTime dateTimeLocal = new DateTime();
+        dateTimeLocal.setYear(100);
+        boolean actual = dateTimeLocal.isLeapYear();
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void isLeapYearDiv400() throws DateTimeException {
+        DateTime dateTimeLocal = new DateTime();
+        dateTimeLocal.setYear(400);
+        boolean actual = dateTimeLocal.isLeapYear();
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void isLeapYearShouldFalse() throws DateTimeException {
+        DateTime dateTimeLocal = new DateTime();
+        dateTimeLocal.setYear(2003);
+        boolean actual = dateTimeLocal.isLeapYear();
+        Assert.assertFalse(actual);
     }
 }

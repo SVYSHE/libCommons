@@ -204,6 +204,27 @@ public class DateTime implements Serializable, Comparable<DateTime> {
     }
 
     /**
+     * Checks if the year of this instance is a leap year or not.
+     *
+     * @return true if it is a leap year, false if not.
+     */
+    public boolean isLeapYear() {
+        return yearIsDividableBy4() && yearIsNotDividableBy100() || yearIsDividableBy400();
+    }
+
+    private boolean yearIsDividableBy4() {
+        return getYear() % 4 == 0;
+    }
+
+    private boolean yearIsNotDividableBy100() {
+        return getYear() % 100 != 0;
+    }
+
+    private boolean yearIsDividableBy400() {
+        return getYear() % 400 == 0;
+    }
+
+    /**
      * Getter for the year.
      *
      * @return The year as integer.
