@@ -1,4 +1,4 @@
-package com.github.svyshe.date;
+package com.github.svyshe.libcommons.libdatetime;
 
 public class DateTimeException extends Exception {
     public DateTimeException(String errorMessage)

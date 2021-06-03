@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.svyshe</groupId>
-    <artifactId>javautils</artifactId>
+    <artifactId>libCommons</artifactId>
     <version>0.1</version>
 
     <name>java.utils</name>

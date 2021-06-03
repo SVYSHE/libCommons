@@ -1,4 +1,4 @@
-package com.github.svyshe.date;
+package com.github.svyshe.libcommons.libdatetime;
 
 import org.junit.Assert;
 import org.junit.Rule;
