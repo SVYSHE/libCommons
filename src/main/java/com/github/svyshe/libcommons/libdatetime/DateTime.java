@@ -36,6 +36,22 @@ public class DateTime implements Serializable, Comparable<DateTime> {
     }
 
     /**
+     * Copy constructor.
+     *
+     * @param objectToCopy the {@link DateTime} object to copy.
+     * @throws DateTimeException if any invalid values are specified for the fields.
+     */
+    public DateTime(DateTime objectToCopy) throws DateTimeException {
+        setYear(objectToCopy.getYear());
+        setMonth(objectToCopy.getMonth());
+        setDayOfMonth(objectToCopy.getDayOfMonth());
+        setHours(objectToCopy.getHours());
+        setMinutes(objectToCopy.getMinutes());
+        setSeconds(objectToCopy.getSeconds());
+        setMilliseconds(objectToCopy.getMilliseconds());
+    }
+
+    /**
      * Parses a date from the specified string.
      *
      * @param dateString The string to parse the date from.
@@ -126,7 +142,6 @@ public class DateTime implements Serializable, Comparable<DateTime> {
      * @return 1 if this date is later in time, -1 if it's sooner in time
      * compared to the specified date. 0 if they are equal.
      */
-    @Override
     public int compareTo(DateTime o) {
         if (this.getYear() > o.getYear()) {
             return 1;
