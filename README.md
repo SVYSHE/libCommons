@@ -15,4 +15,8 @@ Can handle dates and times. Combines `java.util.Date` and `java.time.LocalDateTi
     - [ ] Statements based on class model (CRUD)
 - [ ] Currency Class
     - [ ] Euro, USD, etc. with different notations (€,$, etc...)
-    
+- [ ] A port of the C++ `Badge<T>` concept to java, to prevent internal API's from being misused
+
+## Some possible but not yet planned features
+
+- [ ] A [HOCON](https://en.wikipedia.org/wiki/HOCON) base configuration class
