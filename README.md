@@ -16,6 +16,8 @@ Can handle dates and times. Combines `java.util.Date` and `java.time.LocalDateTi
 - [ ] Currency Class
     - [ ] Euro, USD, etc. with different notations (€,$, etc...)
 - [ ] A port of the C++ `Badge<T>` concept to java, to prevent internal API's from being misused
+- [ ] libCSV (RFC 4180 compliant)
+- [ ] SQL Query builder based of of [danfickle/java-sql-query-builder](https://github.com/danfickle/java-sql-query-builder)
 
 ## Some possible but not yet planned features
 
