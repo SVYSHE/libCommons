@@ -178,7 +178,7 @@ public enum Port {
         this.longName = longName;
     }
     
-    public static PortEnum getPort(int number)
+    public static Port getPort(int number)
     {
         switch (number)
         {
