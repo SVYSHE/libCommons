@@ -10,9 +10,6 @@ Can handle dates and times. Combines `java.util.Date` and `java.time.LocalDateTi
 
 ## Future plans
 
-- [ ] Handling databases
-    - [ ] Establish [connection](https://www.javatpoint.com/steps-to-connect-to-the-database-in-java) via settings.json file
-    - [ ] Statements based on class model (CRUD)
 - [ ] Currency Class
     - [ ] Euro, USD, etc. with different notations (€,$, etc...)
 - [ ] A port of the C++ `Badge<T>` concept to java, to prevent internal API's from being misused
