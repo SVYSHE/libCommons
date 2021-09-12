@@ -1,9 +1,11 @@
-package svyshe.com.github.libcommons.libdatetime;
+package svyshe.com.github.libcommons.libdatetime.test;
 
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import svyshe.com.github.libcommons.libdatetime.DateTime;
+import svyshe.com.github.libcommons.libdatetime.DateTimeException;
 
 public class DateTimeTest {
 
