@@ -1,4 +1,4 @@
-package svyshe.com.github.libcommons.libformats.exceptions;
+package svyshe.com.github.libcommons.libformats.csv.exceptions;
 
 import java.io.IOException;
 
@@ -9,5 +9,9 @@ public class CSVClientException extends IOException {
 
     public CSVClientException(String message) {
         super(message);
+    }
+
+    public CSVClientException(String message, Throwable cause) {
+        super(message, cause);
     }
 }
